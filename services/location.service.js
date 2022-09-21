@@ -1,15 +1,17 @@
-
+const getCity = require("../utils/getCity");
+const getPublicIp = require("../utils/getPublicIp");
 class LocationService {
 
-  constructor(){
-  }
 
-  find() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(this.products);
-      }, 3000);
-    })
+  async findLocation() {
+
+
+
+    const ip = await getPublicIp();
+
+      const city = await getCity(ip);
+
+  return city;
   }
 
 

@@ -1,16 +1,17 @@
 const express = require('express');
 
-const CurrentService = require('../services/current.service');
+const ForecastService = require('../services/forecast.service');
 
 const router = express.Router();
-const service = new CurrentService();
+const service = new ForecastService();
 
-router.get('/:city',
+router.get('/:city?',
   async (req, res, next) => {
     try {
-      const { city } = req.params;
-      const product = await service.find(city);
-      res.json(product);
+
+      const { city } = req.params ? req.params : null;
+      const forecast = await service.find(city);
+      res.json(forecast);
     } catch (error) {
       next(error);
     }

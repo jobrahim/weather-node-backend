@@ -1,26 +1,29 @@
-const axios = require("axios");
-const urlOptions = require("../constants/options");
+
+const { default: axios } = require("axios");
+const { urlWeather, keyValue } = require("../constants/constants");
+const getCity = require("../utils/getCity");
+const getPublicIp = require("../utils/getPublicIp");
+
+
 
 class CurrentService {
 
-  constructor(){
+  constructor( ){
   }
 
   async find(city) {
 
-    let urlCity = 'https://open-weather13.p.rapidapi.com/city/london';
-
-    if(city) {
-      urlCity = `https://open-weather13.p.rapidapi.com/city/${city}`;
+    if(!city){
+      const ip = await getPublicIp();
+      city = await getCity(ip);
     }
 
-    const options = {
+
+    let urlCity = `${urlWeather}?q=${city}&appid=${keyValue}`;
+
+   const options = {
     method: 'GET',
     url: urlCity,
-    headers: {
-    'X-RapidAPI-Key': `${urlOptions.Key}`,
-    'X-RapidAPI-Host': `${urlOptions.Host}`
-        }
     };
 
     const { data } = await axios.request(options);
@@ -28,6 +31,7 @@ class CurrentService {
 
   return data;
   }
+
 
 }
 

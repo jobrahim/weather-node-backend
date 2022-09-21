@@ -1,22 +1,21 @@
 const express = require('express');
 
-const CurrentService = require('../services/current.service');
+const LocationService = require('../services/location.service');
 
 const router = express.Router();
-const service = new CurrentService();
+const service = new LocationService();
 
-router.get('/:city',
+router.get('/',
   async (req, res, next) => {
     try {
-      const { city } = req.params;
-      const product = await service.find(city);
-      res.json(product);
+      const location = await service.findLocation();
+
+      return res.json(location);
     } catch (error) {
       next(error);
     }
   }
 );
-
 
 
 
