@@ -1,15 +1,15 @@
-const getCity = require("../utils/getCity");
-const getPublicIp = require("../utils/getPublicIp");
+const { publicIp } = require("../constants/constants");
+const { location } = require("../constants/constants");
+const callUrl = require("../utils/callUrl");
 class LocationService {
 
 
   async findLocation() {
 
 
+    const {ip} = await callUrl(publicIp);
+    const {city} = await callUrl(location + ip);
 
-    const ip = await getPublicIp();
-
-    const city = await getCity(ip);
 
   return city;
   }
