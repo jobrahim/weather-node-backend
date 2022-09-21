@@ -5,10 +5,10 @@ const CurrentService = require('../services/current.service');
 const router = express.Router();
 const service = new CurrentService();
 
-router.get('/:city',
+router.get('/:city?',
   async (req, res, next) => {
     try {
-      const { city } = req.params;
+      const { city } = req.params ? req.params : null;
       const current = await service.find(city);
       res.json(current);
     } catch (error) {
