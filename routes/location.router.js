@@ -1,7 +1,5 @@
 const express = require('express');
-
 const LocationService = require('../services/location.service');
-
 const router = express.Router();
 const service = new LocationService();
 

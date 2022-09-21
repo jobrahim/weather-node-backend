@@ -1,7 +1,5 @@
 const express = require('express');
-
 const ForecastService = require('../services/forecast.service');
-
 const router = express.Router();
 const service = new ForecastService();
 

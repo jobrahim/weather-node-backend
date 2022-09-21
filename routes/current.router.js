@@ -1,7 +1,5 @@
 const express = require('express');
-
 const CurrentService = require('../services/current.service');
-
 const router = express.Router();
 const service = new CurrentService();
 

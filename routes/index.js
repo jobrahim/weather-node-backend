@@ -1,5 +1,4 @@
 const express = require('express');
-
 const locationRouter = require('./location.router');
 const currentRouter = require('./current.router');
 const forecastRouter = require('./forecast.router');
