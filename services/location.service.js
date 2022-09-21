@@ -9,7 +9,7 @@ class LocationService {
 
     const ip = await getPublicIp();
 
-      const city = await getCity(ip);
+    const city = await getCity(ip);
 
   return city;
   }

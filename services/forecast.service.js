@@ -1,5 +1,7 @@
+require('dotenv').config();
+const {KEY} = process.env;
 const { default: axios } = require("axios");
-const { urlforecastFive, keyValue } = require("../constants/constants");
+const { urlforecastFive} = require("../constants/constants");
 const getCity = require("../utils/getCity");
 const getPublicIp = require("../utils/getPublicIp");
 
@@ -15,7 +17,7 @@ class ForecastService {
       city = await getCity(ip);
     }
 
-    let urlCity = `${urlforecastFive}?q=${city}&appid=${keyValue}`;
+    let urlCity = `${urlforecastFive}?q=${city}&appid=${KEY}`;
 
    const options = {
     method: 'GET',

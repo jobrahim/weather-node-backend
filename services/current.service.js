@@ -1,9 +1,9 @@
-
+require('dotenv').config();
+const {KEY} = process.env;
 const { default: axios } = require("axios");
-const { urlWeather, keyValue } = require("../constants/constants");
+const { urlWeather } = require("../constants/constants");
 const getCity = require("../utils/getCity");
 const getPublicIp = require("../utils/getPublicIp");
-
 
 
 class CurrentService {
@@ -19,7 +19,7 @@ class CurrentService {
     }
 
 
-    let urlCity = `${urlWeather}?q=${city}&appid=${keyValue}`;
+    let urlCity = `${urlWeather}?q=${city}&appid=${KEY}`;
 
    const options = {
     method: 'GET',
