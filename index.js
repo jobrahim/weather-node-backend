@@ -1,12 +1,4 @@
-const express = require('express');
-const routerApi = require('./routes');
-
-
-const app = express();
-
-app.use(express.json());
-
-routerApi(app);
+const app = require('./app');
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

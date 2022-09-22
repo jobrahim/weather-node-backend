@@ -6,10 +6,9 @@ const service = new LocationService();
 router.get('/',
   async (req, res, next) => {
     try {
-      console.log("inside location endpoint");
+
       const location = await service.findLocation();
-      const loc = res.status(200).json({status: "success", city: location});
-     return loc;
+      res.status(200).json({status: "success", city: location});
     } catch (error) {
       next(error);
     }
