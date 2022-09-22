@@ -1,4 +1,4 @@
-
+# Getting Started with weather-node-project
 ## Available Scripts
 
 In the project directory, you can run:

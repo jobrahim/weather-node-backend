@@ -1,9 +1,10 @@
 require('dotenv').config();
 const {KEY} = process.env;
 const { urlforecastFive} = require("../constants/constants");
-const { publicIp } = require("../constants/constants");
-const { location } = require("../constants/constants");
 const callUrl = require('../utils/callUrl');
+const LocationService = require('../services/location.service');
+const locationService = new LocationService();
+
 
 class ForecastService {
 
@@ -13,9 +14,7 @@ class ForecastService {
   async find(city) {
 
     if(!city){
-      const {ip} = await callUrl(publicIp);
-      const data = await callUrl(location + ip);
-      city = data.city;
+      city = await locationService.findLocation();
     }
 
     let urlCity = `${urlforecastFive}?q=${city}&appid=${KEY}`;

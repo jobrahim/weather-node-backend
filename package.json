@@ -1,5 +1,5 @@
 {
-  "name": "node-project",
+  "name": "weather-node-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ibrahim Bastidas",
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
