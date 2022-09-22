@@ -1,14 +1,13 @@
-const { expectationFailed } = require("@hapi/boom")
-const { request } = require("express")
-const router = require("../routes/current.router")
+ const current = require('../routes/current.router');
+const supertest = require('supertest');
+const requestWithSupertest = supertest(current);
 
 
+describe('Current Endpoints', () => {
 
-describe('GET /current', () => {
-  test(' should respond with a 200 status code', async () => {
+  it('GET /current should show current weather of current city', () => {
 
-    const response = await request(router).get('/current').send()
+  });
 
-    expectationFailed(response.status).toBe('200')
-  })
-})
+});
+

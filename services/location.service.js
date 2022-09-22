@@ -8,6 +8,7 @@ class LocationService {
 
 
     const {ip} = await callUrl(publicIp);
+
     const {city} = await callUrl(location + ip);
 
 
